@@ -4,27 +4,40 @@
     <meta charset="UTF-8">
     <title>Vue 3 Step by Step - by Jefrey Way</title>
     <script src="https://unpkg.com/vue@3"></script>
+    <style>
+        html, body {
+            height: 100%;
+        }
+
+        body {
+            display: grid;
+            place-items: center;
+        }
+
+        .text-red {
+            color: red;
+        }
+
+        .text-green {
+            color: green;
+        }
+    </style>
 </head>
 <body>
 <div id="app">
-    <div>
-        <input type="text" v-model="greeting">
-    </div>
-    <p>
-        {{ greeting }} ({{ greeting.length}})
-    </p>
+    <button v-bind:class="active ? 'text-red' : 'text-green'" v-on:click="toggle">Click Me</button>
 </div>
 <script>
     Vue.createApp({
         data() {
             return {
-                greeting: 'Hello Worl'
+                active: false
             };
         },
-        mounted() {
-            setTimeout(() => {
-               this.greeting = 'Update the Greeting Message';
-            }, 3000)
+        methods: {
+            toggle() {
+                this.active = !this.active;
+            }
         }
     }).mount('#app');
 </script>
