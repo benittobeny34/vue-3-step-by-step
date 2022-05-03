@@ -8,49 +8,25 @@
 </head>
 <body class="h-full grid place-items-center">
 <div id="app">
-    <section>
-        <h2 class="font-bold mb-2" v-show="inProgressAssignments.length">In Progress </h2>
-        <ul>
-            <li v-for="assignment in inProgressAssignments" :key="assignment.id">
-                <label>{{ assignment.name}}
-                    <input type="checkbox" v-model="assignment.complete">
-                </label>
-            </li>
-        </ul>
-
-    </section>
-
-    <section>
-        <h2 class="font-bold mt-8" v-show="completedAssignments.length">Completed Assignments</h2>
-        <ul>
-            <li v-for="assignment in completedAssignments">
-                <label>{{ assignment.name}}
-                    <input type="checkbox" v-model="assignment.complete">
-                </label>
-            </li>
-        </ul>
-
-    </section>
-
+    <app-button>Create</app-button>
+    <app-button>Update</app-button>
+    <app-button>Delete</app-button>
+    <app-button>Back</app-button>
 </div>
 <script>
     let app = {
-        data() {
-            return {
-                assignments: [
-                    {name: 'Finish Project', complete: false, id: 1},
-                    {name: 'Read Chapter', complete: false, id: 2},
-                    {name: 'Turn in HomeWork', complete: false, id: 3},
-                    {name: 'Submit Home Work', complete: false, id: 4},
-                ]
-            }
-        },
-        computed: {
-            completedAssignments() {
-                return this.assignments.filter( assignment => assignment.complete);
-            },
-            inProgressAssignments() {
-                return this.assignments.filter( assignment => !assignment.complete);
+        components: {
+            'app-button': {
+                template: `
+                 <button class="btn btn-primary bg-gray-200 hover:bg-gray-500 border rounded px-5 py-3 mx-2 disabled:cursor-not-allowed" :disabled="processing">
+                    <slot/>
+                </button>
+                `,
+                data() {
+                    return {
+                        processing : true
+                    };
+                }
             }
         }
     };
