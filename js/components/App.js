@@ -17,10 +17,10 @@ export default {
     data() {
         return {
             assignments: [
-                {name: 'Finish Project', complete: false, id: 1},
-                {name: 'Read Chapter', complete: false, id: 2},
-                {name: 'Turn in HomeWork', complete: false, id: 3},
-                {name: 'Submit Home Work', complete: false, id: 4},
+                {name: 'Finish Project', complete: false, id: 1, tag: 'math'},
+                {name: 'Read Chapter', complete: false, id: 2, tag: 'science'},
+                {name: 'Turn in HomeWork', complete: false, id: 3, tag: 'math'},
+                {name: 'Submit Home Work', complete: false, id: 4, tag: 'science'},
             ],
         }
     },
@@ -37,7 +37,7 @@ export default {
             this.assignments.push({
                 name: name,
                 completed: false,
-                id: this.assignments.length+1
+                id: this.assignments.length + 1
             })
         }
     }
