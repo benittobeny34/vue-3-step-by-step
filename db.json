@@ -1,0 +1,34 @@
+{
+  "assignments": [
+    {
+      "name": "Finish Project",
+      "complete": false,
+      "id": 1,
+      "tag": "math"
+    },
+    {
+      "name": "Read Chapter",
+      "complete": false,
+      "id": 2,
+      "tag": "science"
+    },
+    {
+      "name": "Turn in HomeWork",
+      "complete": false,
+      "id": 3,
+      "tag": "math"
+    },
+    {
+      "name": "Submit Home Work",
+      "complete": false,
+      "id": 4,
+      "tag": "science"
+    },
+    {
+      "name": "Watch Vue Series New Video",
+      "complete": true,
+      "id": 5,
+      "tag": "laracasts"
+    }
+  ]
+}
